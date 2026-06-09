@@ -21,15 +21,7 @@ int main()
     string s;
     cout << "Enter a String: ";
     cin >> s;
-    int index = firstUniqueChar(s);
-    if (index == -1)
-    {
-        cout << "No Unique Character Found!";
-    }
-    else
-    {
-        cout << "First Unique Character Index: " << index;
-    }
+    cout << "First Unique Character Index is: " << firstUniqueChar(s);
     return 0;
 }
 // Time Complexity --> O(n)
