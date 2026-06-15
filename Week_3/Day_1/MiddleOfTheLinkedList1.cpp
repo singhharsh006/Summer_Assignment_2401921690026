@@ -12,18 +12,16 @@ public:
         next = NULL;
     }
 };
-ListNode* reverseList(ListNode* head)
+ListNode* middleNode(ListNode* head)
 {
-    ListNode* prev = NULL;
-    ListNode* curr = head;
-    while (curr)
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while (fast && fast->next)
     {
-        ListNode* nextNode = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = nextNode;
+        slow = slow->next;
+        fast = fast->next->next;
     }
-    return prev;
+    return slow;
 }
 int main()
 {
@@ -45,13 +43,8 @@ int main()
             tail = newNode;
         }
     }
-    head = reverseList(head);
-    cout << "Reversed Linked List: ";
-    while (head)
-    {
-        cout << head->val << " ";
-        head = head->next;
-    }
+    ListNode* middle = middleNode(head);
+    cout << "Middle Node Value: " << middle->val;
     return 0;
 }
 // Time Complexity --> O(n)
